@@ -1,6 +1,6 @@
 import React from 'react';
-import Link from 'next/link';
-import { styles } from './style.js'; // Import styles
+// import Link from 'next/link';
+import { styles } from './style.js'; 
 
 const Footer = () => {
   return (
