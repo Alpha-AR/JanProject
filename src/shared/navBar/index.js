@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import logo from '../assets/images/linkedin.png';
-
+import {LinkedinIcon} from '../../assets/images/index.js';
 import {styles} from './style.js';
 
 const Navbar = () => {
@@ -10,16 +9,15 @@ const Navbar = () => {
       <div className={styles.container}>
         <div className={styles.logoWrapper}>
           <Link href="/">
-            <img src={logo.src} alt="Company Logo" className={styles.logo} />
+          <LinkedinIcon/>
           </Link>
         </div>
         <div className={styles.links}>
-          <Link href="/" className={styles.link}>Home</Link>
-          <Link href="/listing" className={styles.link}>Jobs</Link>
+          <Link href="/" className={styles.link}>HOME</Link>
+          <Link href="/jobs" className={styles.link}>JOBS</Link>
         </div>
-        <div className={styles.actions}>
-        <Link href="/login" className={styles.link}> <button className={styles.btn}>Sign In / Register</button> </Link>
-          
+        <div>
+        <Link href="/login" className={styles.link}> <button className={styles.btn}>SIGN IN</button> </Link>
         </div>
       </div>
     </nav>
