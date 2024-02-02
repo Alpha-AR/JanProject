@@ -6,7 +6,7 @@ const CustomCardJob = ({ img1, img2, text1, text2, text3, text4, className }) =>
       <img className="w-contain h-40 border-b border-gray-700" src={img1.src} alt="role-image" />
       <div className=" p-4">
         <div className="grid grid-cols-[1fr_3fr]">
-          <img src={img2.src} alt="company-icon" className="rounded-full border border-black " /> {/* Adjusted width and height */}
+          <img src={img2.src} alt="company-icon" className="rounded-full border border-black " />
           <div className="font-bold text-2xl flex items-center justify-center">{text1}</div>
         </div>
         <div className="font-bold flex justify-between pt-2">

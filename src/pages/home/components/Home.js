@@ -1,9 +1,6 @@
 import { styles } from './style.js';
-import banner1 from '../../../assets/images/banner1.png';
+import { banner1 } from '../../../assets/images';
 import Image from '../../../shared/Image/index.js';
-// import 
-// import CustomCardJob from '../../../shared/CustomCardJob';
-// import { cardJSON } from '../../../utils/constants.js';
 import CardMovingComp from '../../../shared/CardRotatingComp/index.js';
 import CardMovingJob from '../../../shared/CardRotatingJob/index.js';
 
@@ -28,11 +25,10 @@ const App = ({ }) => {
             </div>
             <div className={styles.container2}>
                 <div className=' container mx-auto text-center bg-gradient-to-r from-blue-700 to-cyan-700 text-transparent bg-clip-text '>
-
                     <div className="text-5xl font-bold my-8">OUR RECRUITERS </div>
-                    <CardMovingComp slides={4}/>
+                    <CardMovingComp slides={4} />
                     <div className="text-5xl font-bold my-8 ">TRENDING JOBS TODAY</div>
-                    <CardMovingJob/>
+                    <CardMovingJob />
                 </div>
             </div>
         </>

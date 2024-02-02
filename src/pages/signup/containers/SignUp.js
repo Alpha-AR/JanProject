@@ -1,13 +1,17 @@
 import { SignUpComponent } from '../components'
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+
 
 const SignUp = () => {
+    const router = useRouter();
     const [userDetails, setUserDetails] = useState({
         name: "",
         email: "",
         password: "",
         confirmPassword: "",
-        gender: ""
+        gender: "",
+        isLoggedIn: 0
     });
     const [error, setError] = useState({});
 
@@ -33,13 +37,14 @@ const SignUp = () => {
         setError(errorObj);
         return errorObj;
     }
-    
-
     const handleSubmit = (event) => {
         event.preventDefault();
         const errorbj = validateForm();
         if (Object.keys(errorbj).length === 0) {
+            // userDetails.isLoggedIn=1;
             console.log("User Details", userDetails);
+            localStorage.setItem('credentials', JSON.stringify(userDetails))
+            router.push('/')
         } else {
             console.log(errorbj)
         }

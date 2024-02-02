@@ -9,11 +9,11 @@ const CardMovingComp = ({ slides }) => {
   const settings = {
     dots: false, 
     infinite: true, 
-    speed: 1000, 
+    speed: 400, 
     slidesToShow: slides, 
     slidesToScroll: 1, 
     autoplay: true,
-    autoplaySpeed: 0, 
+    autoplaySpeed: 2000, 
     cssEase: "ease", 
     pauseOnHover: true, 
     arrows: false,
@@ -21,11 +21,11 @@ const CardMovingComp = ({ slides }) => {
 
   return (
     <Slider {...settings}>
-      {cardJSON.slice(0, 7).map((card, index) => (
+      {cardJSON.slice(0, 5).map((card, index) => (
         <div key={index} className="flex-none h-full w-1/4 gap-4 flex items-center px-10 p-6 text-white">
           <CustomCardComp
-            img2={card.img2}
-            text1={card.text1}
+            img2={card.companyLogo}
+            text1={card.companyName}
           />
         </div>
       ))}

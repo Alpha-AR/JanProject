@@ -9,14 +9,14 @@ const CardMovingJob = () => {
   const settings = {
     dots: false, 
     infinite: true, 
-    speed: 1000, 
+    speed: 400, 
     slidesToShow: 4, 
     slidesToScroll: 1, 
     autoplay: true,
-    autoplaySpeed: 0, 
+    autoplaySpeed: 2000, 
     cssEase: "ease", 
     pauseOnHover: true, 
-    arrows: false,
+    arrows: true,
   };
 
   return (
@@ -26,12 +26,12 @@ const CardMovingJob = () => {
 
                 <CustomCardJob
                     key={index}
-                    img1={card.img1}
-                    img2={card.img2}
-                    text1={card.text1}
-                    text2={card.text2}
-                    text3={card.text3}
-                    text4={card.text4}
+                    img1={card.jobLogo}
+                    img2={card.companyLogo}
+                    text1={card.companyName}
+                    text2={card.jobTitle}
+                    text3={'₹' + card.salary + 'L/Yr'}
+                    text4={card.jobDesc}
                 />
           </div>
         ))}
