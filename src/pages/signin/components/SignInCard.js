@@ -1,58 +1,59 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { styles } from './style';
 import Input from '../../../shared/Input';
 import Link from 'next/link';
 import Button from '../../../shared/Button';
-// impo
-// import { CRED } from '../../../utils/constants';
-
-const SignInCard = ( { userDetails, error, handleChange, handleSubmit }) => {
-
-
+// import toast, { Toaster } from 'react-hot-toast';
+const SignInCard = ({ userDetails, error, handleChange, handleSubmit }) => {
+  // const notify = () => toast('ewfv');
+  // notify();
   return (
-    <div className={styles.signinBox}>
-      <form onSubmit={handleSubmit} >
-        <div className="text-xl font-bold my-4 text-center">SIGN IN </div>
-        <div className='flex flex-col justify-evenly'>
-          <div>
-            <Input
-              id='email'
-              label={error.email ? error.email : 'Email Address'}
-              labelClass={error.email ? 'text-red-500' : styles.labelText}
-              className={styles.inputText}
-              type='text'
-              value={userDetails.email}
-              handleChange={(event) => handleChange("email", event.target.value)}
-            />
+  <div className={styles.signinBox}>
+    <form onSubmit={handleSubmit} >
+      <div className="text-xl font-bold my-4 text-center">SIGN IN </div>
+      <div className='flex flex-col justify-evenly'>
+        <Input
+          id='text'
+          label={error.email ? 'Email Address*' : 'Email Address'}
+          labelClass={styles.labelText}
+          placeholder= 'user@company.com'
+          className={error.email || error.text ? 'border-red-500 border-2' : ''}
+          type='text'
+          value={userDetails.email}
+          handleChange={(event) => handleChange("email", event.target.value)  }
+        />
+        <div className="text-sm text-red-600 "> {error.email} </div>
 
-            <Input
-              id='password'
-              label={error.password ? error.password : 'Password'}
-              labelClass={error.password ? 'text-red-500' : styles.labelText}
-              className={styles.inputText}
-              type='password'
-              value={userDetails.password}
-              handleChange={(event) => handleChange("password", event.target.value)}
-            />
-
-          </div>
-          <div className='text-center pt-2'>
-            <Button
-              type="submit"
-              className={styles.button}
-              // disabledText={!(isEmailValid && isPasswordValid)}
-              text="SUBMIT"
-            />
-            <text className='text-s text-gray-600'> New User?  </text>
-            <Link href="/signup" className='text-s text-blue-400 underline underline-offset-5 hover:text-blue-800'>
-              Register
-            </Link>
-
-          </div>
+        <Input
+          id='password'
+          label='Password'
+          labelClass={styles.labelText}
+          placeholder= '********'
+          className={error.password || error.text ? 'border-red-500 border-2' : styles.inputText}
+          type='password'
+          value={userDetails.password}
+          handleChange={(event) => handleChange("password", event.target.value)}
+        />
+        {/* <div className="text-sm text-red-600 mb-2"> {error.password} </div> */}
+      </div>
+      <div className='text-center pt-2'>
+        <div className="text-sm text-red-600 mb-2"> {!(error.email) ? error.text : ''} </div>
+        <Button
+          type="submit"
+          className={styles.button}
+          text="SUBMIT"
+        />
+        <div className='mt-2'>
+          New User? {" "}
+          <Link href="/SignUp" className='text-s text-blue-400 underline underline-offset-5 hover:text-blue-800 '>
+            Register
+          </Link>
         </div>
-      </form>
-    </div >
-  );
+      </div>
+    </form>
+    {/* <Toaster/> */}
+  </div >
+);
 };
 
 export default SignInCard;

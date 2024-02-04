@@ -1,16 +1,17 @@
 import { styles } from "./style.js";
-import signinImg from '../../../assets/images/signIn.png';
+import { signInImg } from '../../../assets/images';
 import Image from "../../../shared/Image/index.js";
 import SignUpCard from "./SignUpCard.js";
 
 const SignUp = ({ userDetails, error, handleChange, handleSubmit }) => {
+
   return (
     <>
-      <div className={styles.container}>
+      <div className={`${styles.container} h-[86vh]`}>
         <div className={styles.leftContainer}>
           <Image
-            image={signinImg}
-            className='m-auto rounded-2xl shadow-lg '
+            image={signInImg}
+            className='m-auto '
             imageText='Banner 1'
           />
         </div>

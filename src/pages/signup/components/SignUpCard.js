@@ -5,55 +5,72 @@ import Button from '../../../shared/Button';
 import Dropdown from '../../../shared/Dropbox';
 
 const SignUpCard = ({ userDetails, error, handleChange, handleSubmit }) => {
+  const options = [ 
+    { value: 'na', label: 'Prefer Not to Say'},
+    { value: 'm', label: 'Male'},
+    { value: 'f', label:'Female'},
+    { value: 't', label: 'Trans'},
+    { value: 'o', label: 'Other'}
+  ];
   return (
+
     <div className={styles.signUpBox}>
       <form onSubmit={handleSubmit} className="w-full items-center">
         <h2 className="text-xl font-bold my-4 text-center">SIGN UP</h2>
         <Input
           id='name'
-          label={error.name ? error.name : 'Name'} 
-          labelClass={error.name ? 'text-red-500' : styles.labelText} 
-          className={styles.inputText}
+          label={error.name ? " Name*" : 'Name'}
+          labelClass={styles.labelText}
+          placeholder= 'John Doe'
+          className={error.name ? " border-red-700 border-2 " : ''}
           type='text'
           required={true}
           value={userDetails.name}
           handleChange={(event) => handleChange("name", event.target.value)}
         />
-
+        <div className="text-sm text-red-600 mb-2"> {error.name} </div>
         <Input
           id='email'
-          label={error.email ? error.email : 'Email Address'} 
-          labelClass={error.email ? 'text-red-500' : styles.labelText} 
-          className={styles.inputText}
-          type='email'
+          label={error.email ? 'Email Address*' : 'Email Address'}
+          labelClass={styles.labelText}
+          placeholder='user@company.com'
+          className={error.email ? 'border-red-700 border-2  ' : ''}
+          type='text'
           value={userDetails.email}
           handleChange={(event) => handleChange("email", event.target.value)}
         />
+        <div className="text-sm text-red-600 mb-2"> {error.email} </div>
 
         <Input
           id='password'
-          label={error.password ? error.password : 'Password'} 
-          labelClass={error.password ? 'text-red-500' : styles.labelText} 
-          className={styles.inputText}
+          label={error.password ? 'Password*' : 'Password'}
+          labelClass={styles.labelText}
+          placeholder={'••••••••'}
+          className={error.password ? 'border-red-700 border-2 ' : ''}
           type='password'
           value={userDetails.password}
           handleChange={(event) => handleChange("password", event.target.value)}
         />
+        <div className="text-sm text-red-600 mb-2"> {error.password} </div>
 
         <Input
           id='confirmPassword'
-          label={error.confirmPassword ? error.confirmPassword : 'Confirm Password'} 
-          labelClass={error.confirmPassword ? 'text-red-500' : styles.labelText} 
-          className={styles.inputText}
+          label={error.confirmPassword ? 'Confirm Password*' : 'Confirm Password'}
+          placeholder={'••••••••'}
+          labelClass={styles.labelText}
+          className={error.confirmPassword ? 'border-red-700 border-2 ' : ''}
           type='password'
           value={userDetails.confirmPassword}
           handleChange={(event) => handleChange("confirmPassword", event.target.value)}
         />
+        <div className="text-sm text-red-600 mb-2"> {error.confirmPassword} </div> 
+
         <Dropdown
+          options={options}
           id="gender"
-          label={error.gender ? error.gender : 'Gender'} 
-          labelClass={error.gender ? 'text-red-500' : styles.labelText} 
-          className={styles.inputText}
+          label='Gender'
+          labelClass={styles.labelText}
+          className={error.gender ? 'border-red-700 border-2  ' : ' '}
           value={userDetails.gender}
           handleChange={(event) => handleChange("gender", event.target.value)}
         />
