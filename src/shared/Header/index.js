@@ -4,10 +4,9 @@ import { linkedinIcon } from '../../assets/images';
 import { styles } from './style.js';
 import Button from '../Button/index.js';
 import Image from '../Image/index.js';
+import { logout } from '../../assets/images'
 
-const Header = ({text}) => {
-  
-
+const Header = ({ text }) => {
   return (
     <nav className={styles.navbar}>
       <div className='flex items-center justify-center'>
@@ -26,8 +25,14 @@ const Header = ({text}) => {
             <Link href="/jobs" className={styles.link}>JOBS</Link>
           </div>
         </div>
-        <div>
-          <Link href="/SignIn" className={styles.link}><Button className={styles.btn} text = {text == null ? "SIGN IN" : `${text} `} />
+        <div >
+          <Link href="/SignIn" className={styles.link}>
+            {/* <Image
+                image={logout}
+                className='w-28 h-10 object-contain'
+                imageText='Company Icon'
+              /> */}
+              <Button className={styles.btn} text={text == null ? "SIGN IN" : `${text} ` } />
           </Link>
         </div>
       </div>

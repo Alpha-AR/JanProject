@@ -3,7 +3,7 @@ import { styles } from './style';
 import Input from '../../../shared/Input';
 import Link from 'next/link';
 import Button from '../../../shared/Button';
-// import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 const SignInCard = ({ userDetails, error, handleChange, handleSubmit }) => {
   // const notify = () => toast('ewfv');
   // notify();
@@ -28,7 +28,7 @@ const SignInCard = ({ userDetails, error, handleChange, handleSubmit }) => {
           id='password'
           label='Password'
           labelClass={styles.labelText}
-          placeholder= '********'
+          placeholder= "••••••••"
           className={error.password || error.text ? 'border-red-500 border-2' : styles.inputText}
           type='password'
           value={userDetails.password}
@@ -51,7 +51,6 @@ const SignInCard = ({ userDetails, error, handleChange, handleSubmit }) => {
         </div>
       </div>
     </form>
-    {/* <Toaster/> */}
   </div >
 );
 };

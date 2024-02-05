@@ -1,7 +1,7 @@
 import { SignUpComponent } from '../components'
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 const SignUp = () => {
     const router = useRouter();
@@ -37,6 +37,10 @@ const SignUp = () => {
         if (!(userDetails.password === userDetails.confirmPassword)) {
             errorObj["confirmPassword"] = "*Passwords do not match";
         }
+        if (errorObj.name) toast(errorObj.name)
+        if (errorObj.email) toast(errorObj.email)
+        if (errorObj.password) toast(errorObj.password)
+        if (errorObj.confirmPassword) toast(errorObj.confirmPassword)
         setError(errorObj);
         return errorObj;
     }
@@ -45,7 +49,7 @@ const SignUp = () => {
         event.preventDefault();
         const errorbj = validateForm();
         if (Object.keys(errorbj).length === 0) {
-            userDetails.isLoggedIn=1;
+            userDetails.isLoggedIn = 1;
             console.log("User Details", userDetails);
             localStorage.setItem('credentials', JSON.stringify(userDetails))
             router.push('/')

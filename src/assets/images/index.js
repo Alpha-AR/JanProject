@@ -9,3 +9,4 @@ export const accountant = require('./accountant.png').default;
 export const lawyer = require('./lawyer.png').default;
 export const rapido = require('./rapido.png').default;
 export const blu = require('./blu.png').default;
+export const logout = require('./logout.png').default;

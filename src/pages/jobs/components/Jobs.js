@@ -10,7 +10,7 @@ const Jobs = ({ jobDetails, handleSortChange, handleCompChange, handlePayChange,
             <div className='flex flex-col px-5 overflow-hidden' >
                 <Input
                     type="text"
-                    placeholder="Search..."
+                    placeholder="Search by company | Search by role"
                     value={jobDetails.search}
                     className='bg-gray-50  mb-4 my-2 rounded-xl px-2'
                     handleChange={(event) => handleSearchChange("search", event.target.value)}

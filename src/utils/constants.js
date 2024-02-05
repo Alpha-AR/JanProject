@@ -76,8 +76,10 @@ export const CRED = [
     },
 ]
 export const CHOICES = [
-    { value: 'NamAsc', label: 'Name ↓' },
-    { value: 'NamDesc', label: 'Name ↑' },
+    { value: 'NamAsc', label: 'Company ↓' },
+    { value: 'NamDesc', label: 'Company ↑' },
+    { value: 'JobAsc', label: 'Job ↓' },
+    { value: 'JobDesc', label: 'Job ↑' },
     { value: 'PayAsc', label: 'Pay ↓' },
     { value: 'PayDesc', label: 'Pay ↑' },
 ];
