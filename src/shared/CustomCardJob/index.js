@@ -5,9 +5,20 @@ const CustomCardJob = ({ img1, img2, text1, text2, text3, text4, className }) =>
   const notify = () => {
     const credentials = JSON.parse(localStorage.getItem('credentials'));
     if (credentials && credentials.isLoggedIn == 1) { 
-      toast(`Applied at ${text1}`)} 
+      toast(`Applied at ${text1}`, {
+        style: {
+        backgroundColor: '#3b82f6', 
+        color: 'white'
+        }
+      });
+    }
     else {
-      toast(`Please Sign In first`);
+      toast('Please Sign In first', {
+        style: {
+          backgroundColor: '#ef4444', 
+          color: 'white'
+        },
+      });
     }
   }
   
@@ -24,8 +35,8 @@ const CustomCardJob = ({ img1, img2, text1, text2, text3, text4, className }) =>
           <div className="text-start text-lg">{text2}</div>
           <div className="text-end text-lg">{text3}</div>
         </div>
-        <p className=" text-gray-600 text-base text-justify line-clamp-2 ">{text4}</p> {/* Changed from h-0 to hidden for better accessibility */}
-        <Button className=' p-2 mt-2 border shadow-black hover:border-gray-200 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 opacity-95 w-full  hover:opacity-100 hover:shadow-xl text-blue-50 font-bold focus:from-cyan-500 focus:to-blue-500 focus:shadow-inner ' text='APPLY' onClick={notify} />
+        <p className=" text-gray-600 text-base text-justify line-clamp-2 ">{text4}</p> 
+        <Button className=' p-2 mt-2 border shadow-black hover:border-gray-200 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 opacity-95 w-full  hover:opacity-100 hover:shadow-xl text-blue-50 font-bold hover:from-cyan-500 hover:to-blue-500 focus:shadow-inner ' text='APPLY' onClick={notify} />
       </div>
     </div>
 

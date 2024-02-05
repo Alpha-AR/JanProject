@@ -14,7 +14,7 @@ const SignInCard = ({ userDetails, error, handleChange, handleSubmit }) => {
       <div className='flex flex-col justify-evenly'>
         <Input
           id='text'
-          label={error.email ? 'Email Address*' : 'Email Address'}
+          label= 'Email Address*'
           labelClass={styles.labelText}
           placeholder= 'user@company.com'
           className={error.email || error.text ? 'border-red-500 border-2' : ''}
@@ -26,7 +26,7 @@ const SignInCard = ({ userDetails, error, handleChange, handleSubmit }) => {
 
         <Input
           id='password'
-          label='Password'
+          label='Password*'
           labelClass={styles.labelText}
           placeholder= "••••••••"
           className={error.password || error.text ? 'border-red-500 border-2' : styles.inputText}

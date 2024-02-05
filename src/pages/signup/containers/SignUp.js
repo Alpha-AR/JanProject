@@ -1,6 +1,7 @@
 import { SignUpComponent } from '../components'
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
+import AppContext from '../../../contexts/AppContext';
 import toast from 'react-hot-toast';
 
 const SignUp = () => {
@@ -11,7 +12,7 @@ const SignUp = () => {
         password: "",
         confirmPassword: "",
         gender: "na",
-        isLoggedIn: 0
+        isLoggedIn: 1
     });
 
     const [error, setError] = useState({});
@@ -19,28 +20,26 @@ const SignUp = () => {
     const handleChange = (key, value) => {
         setUserDetails(prev => ({ ...prev, [key]: value }));
     }
+    const { setUserName } = useContext(AppContext);
+    const passValueToApp = (value) => setUserName(value);
 
     const validateForm = () => {
         const errorObj = {};
         if (!userDetails.name.trim().length) {
-            errorObj["name"] = "*Required";
+            errorObj["name"] = "Required";
         }
         if (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/).test(userDetails.email)) {
-            errorObj["email"] = "*Required";
+            errorObj["email"] = "Required";
         }
         if (!(userDetails.password.length >= 8)) {
-            errorObj["password"] = "*Enter an 8-digit password";
+            errorObj["password"] = "Enter an 8-digit password";
             if (userDetails.password.length == 0) {
-                errorObj["password"] = "*Required";
+                errorObj["password"] = "Required";
             }
         }
         if (!(userDetails.password === userDetails.confirmPassword)) {
-            errorObj["confirmPassword"] = "*Passwords do not match";
+            errorObj["confirmPassword"] = "Passwords do not match";
         }
-        if (errorObj.name) toast(errorObj.name)
-        if (errorObj.email) toast(errorObj.email)
-        if (errorObj.password) toast(errorObj.password)
-        if (errorObj.confirmPassword) toast(errorObj.confirmPassword)
         setError(errorObj);
         return errorObj;
     }
@@ -49,8 +48,7 @@ const SignUp = () => {
         event.preventDefault();
         const errorbj = validateForm();
         if (Object.keys(errorbj).length === 0) {
-            userDetails.isLoggedIn = 1;
-            console.log("User Details", userDetails);
+            passValueToApp(userDetails.name);
             localStorage.setItem('credentials', JSON.stringify(userDetails))
             router.push('/')
         } else {

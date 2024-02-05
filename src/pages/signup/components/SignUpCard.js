@@ -19,7 +19,7 @@ const SignUpCard = ({ userDetails, error, handleChange, handleSubmit }) => {
         <h2 className="text-xl font-bold my-4 text-center">SIGN UP</h2>
         <Input
           id='name'
-          label={error.name ? " Name*" : 'Name'}
+          label=" Name*" 
           labelClass={styles.labelText}
           placeholder= 'John Doe'
           className={error.name ? " border-red-700 border-2 " : ''}
@@ -31,7 +31,7 @@ const SignUpCard = ({ userDetails, error, handleChange, handleSubmit }) => {
         <div className="text-sm text-red-600 mb-2"> {error.name} </div>
         <Input
           id='email'
-          label={error.email ? 'Email Address*' : 'Email Address'}
+          label='Email Address*'
           labelClass={styles.labelText}
           placeholder='user@company.com'
           className={error.email ? 'border-red-700 border-2  ' : ''}
@@ -43,7 +43,7 @@ const SignUpCard = ({ userDetails, error, handleChange, handleSubmit }) => {
 
         <Input
           id='password'
-          label={error.password ? 'Password*' : 'Password'}
+          label='Password*'
           labelClass={styles.labelText}
           placeholder={'••••••••'}
           className={error.password ? 'border-red-700 border-2 ' : ''}
@@ -55,7 +55,7 @@ const SignUpCard = ({ userDetails, error, handleChange, handleSubmit }) => {
 
         <Input
           id='confirmPassword'
-          label={error.confirmPassword ? 'Confirm Password*' : 'Confirm Password'}
+          label='Confirm Password*'
           placeholder={'••••••••'}
           labelClass={styles.labelText}
           className={error.confirmPassword ? 'border-red-700 border-2 ' : ''}

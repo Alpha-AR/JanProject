@@ -4,7 +4,7 @@ import { linkedinIcon } from '../../assets/images';
 import { styles } from './style.js';
 import Button from '../Button/index.js';
 import Image from '../Image/index.js';
-import { logout } from '../../assets/images'
+import { logout } from '../../assets/images';
 
 const Header = ({ text }) => {
   return (
@@ -12,7 +12,7 @@ const Header = ({ text }) => {
       <div className='flex items-center justify-center'>
         <div className={styles.container}>
           <div className={styles.logoWrapper}>
-            <Link href="/" >
+            <Link href="/">
               <Image
                 image={linkedinIcon}
                 className='w-28 h-10 object-contain'
@@ -25,15 +25,16 @@ const Header = ({ text }) => {
             <Link href="/jobs" className={styles.link}>JOBS</Link>
           </div>
         </div>
-        <div >
-          <Link href="/SignIn" className={styles.link}>
-            {/* <Image
-                image={logout}
-                className='w-28 h-10 object-contain'
-                imageText='Company Icon'
-              /> */}
-              <Button className={styles.btn} text={text == null ? "SIGN IN" : `${text} ` } />
-          </Link>
+        <div>
+          { text ? (
+            <Link href="/jobs">
+              <Button className={`${styles.btn} flex flex-row-reverse`} text={text} image={{ logout }} />
+            </Link>
+          ) : (
+            <Link href="/SignIn" className={styles.link}>
+              <Button className={`${styles.btn} flex flex-row-reverse`} text="SIGN IN" />
+            </Link>
+          )}
         </div>
       </div>
     </nav>
