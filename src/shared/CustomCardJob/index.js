@@ -1,5 +1,5 @@
 import Button from "../Button";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 const CustomCardJob = ({ img1, img2, text1, text2, text3, text4, className }) => {
   const notify = () => {

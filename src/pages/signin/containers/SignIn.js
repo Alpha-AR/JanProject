@@ -5,11 +5,18 @@ import AppContext from '../../../contexts/AppContext';
 import toast from 'react-hot-toast'
 
 const SignIn = () => {
-    useEffect(() => { 
-        localStorage.setItem('credentials', JSON.stringify({ ...JSON.parse(localStorage.getItem('credentials')), isLoggedIn: 0 }));
-        passValueToApp(null);
-        // storedCredentials = localStorage.getItem('credentials');
-    }, []);
+
+    useEffect(() => {
+        const storedCredentials = localStorage.getItem('credentials');
+        if (storedCredentials) {
+            const parsedCredentials = JSON.parse(storedCredentials);
+            if (parsedCredentials.isLoggedIn === 1) {
+                router.push('/jobs'); 
+            }
+        }
+       
+    }, [useRouter]); 
+    
     
     const { setUserName } = useContext(AppContext);
     const passValueToApp = (value) => setUserName(value);

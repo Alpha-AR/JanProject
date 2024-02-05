@@ -1,10 +1,22 @@
 import { SignUpComponent } from '../components'
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import AppContext from '../../../contexts/AppContext';
 import toast from 'react-hot-toast';
 
 const SignUp = () => {
+
+    useEffect(() => {
+        const storedCredentials = localStorage.getItem('credentials');
+        if (storedCredentials) {
+            const parsedCredentials = JSON.parse(storedCredentials);
+            if (parsedCredentials.isLoggedIn === 1) {
+                router.push('/jobs'); 
+            }
+        }
+       
+    }, [useRouter]); 
+
     const router = useRouter();
     const [userDetails, setUserDetails] = useState({
         name: "",
