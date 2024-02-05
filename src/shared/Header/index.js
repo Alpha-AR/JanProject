@@ -4,7 +4,7 @@ import { linkedinIcon } from '../../assets/images';
 import { styles } from './style.js';
 import Button from '../Button/index.js';
 import Image from '../Image/index.js';
-import { logout } from '../../assets/images/logout.png';
+import { logout } from '../../assets/images';
 
 const Header = ({ text }) => {
   return (
@@ -28,7 +28,8 @@ const Header = ({ text }) => {
         <div>
           { text ? (
             <Link href="/SignIn">
-              <Button className={`${styles.btn} flex flex-row-reverse`} text={text} image={{ logout }} />
+              <img src={logout} />
+              {/* <Button className={`${styles.btn} flex flex-row-reverse`} text={text} image= {{logout}} /> */}
             </Link>
           ) : (
             <Link href="/SignIn" className={styles.link}>

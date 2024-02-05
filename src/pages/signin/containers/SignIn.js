@@ -2,42 +2,36 @@ import { SignInComponent } from '../components'
 import React, { useState, useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import AppContext from '../../../contexts/AppContext';
-import toast from 'react-hot-toast'
 
 const SignIn = () => {
-
     useEffect(() => {
         const storedCredentials = localStorage.getItem('credentials');
         if (storedCredentials) {
             const parsedCredentials = JSON.parse(storedCredentials);
             if (parsedCredentials.isLoggedIn === 1) {
-                router.push('/jobs'); 
+                router.push('/jobs');
             }
         }
-       
-    }, [useRouter]); 
-    
-    
+
+    }, [useRouter]);
+
     const { setUserName } = useContext(AppContext);
     const passValueToApp = (value) => setUserName(value);
-    
-    
     const router = useRouter();
     const [userDetails, setUserDetails] = useState({
         email: "",
         password: "",
         text: ""
     });
-    
+
     const [error, setError] = useState({});
     const handleChange = (key, value) => {
         setUserDetails(prev => ({ ...prev, [key]: value }));
-        
     }
-    const storedCredentials = localStorage.getItem('credentials');
-    const parsedCredentials = storedCredentials ? JSON.parse(storedCredentials) : {};
-    console.log(parsedCredentials);
     const validateForm = () => {
+        const storedCredentials = localStorage.getItem('credentials');
+        const parsedCredentials = storedCredentials ? JSON.parse(storedCredentials) : {};
+
         const errorObj = {};
 
         if (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/).test(userDetails.email)) {
@@ -57,8 +51,11 @@ const SignIn = () => {
         setError(errorObj);
         return errorObj;
     }
-    
+
     const handleSubmit = (event) => {
+        const storedCredentials = localStorage.getItem('credentials');
+        const parsedCredentials = storedCredentials ? JSON.parse(storedCredentials) : {};
+
         event.preventDefault();
         const errorbj = validateForm();
         if (Object.keys(errorbj).length === 0) {
