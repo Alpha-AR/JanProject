@@ -12,7 +12,7 @@ const CustomCardJob = ({
   const notify = () => {
     const credentials = JSON.parse(localStorage.getItem("credentials"));
     if (credentials && credentials.isLoggedIn == 1) {
-      customToast( `Applied at ${text1}` , 'casual')
+      customToast( `Applied at ${companyName}` , 'casual')
     } else {
       customToast("Please Sign In first", 'alert')
     }
