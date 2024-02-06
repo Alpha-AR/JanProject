@@ -1,11 +1,11 @@
-import React from 'react';
-import CustomCardJob from '../CustomCardJob';
-import Slider from 'react-slick';
-import { cardJSON } from '../../utils/constants';
+import React from "react";
+import CustomCardJob from "./CustomCardJob";
+import Slider from "react-slick";
+import { CARD_JSON } from "../../utils/constants";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const CardMovingJob = () => {
+const JobsCardCarousal = () => {
   const settings = {
     dots: false,
     infinite: true,
@@ -23,16 +23,15 @@ const CardMovingJob = () => {
     <>
       <div className="text-5xl font-bold my-8 ">TRENDING JOBS TODAY</div>
       <Slider {...settings}>
-        {cardJSON.slice(0, 8).map((card, index) => (
+        {CARD_JSON.slice(0, 8).map((card, index) => (
           <div key={index} className="gap-1 px-10 p-6 text-white">
-
             <CustomCardJob
               key={index}
               img1={card.jobLogo}
               img2={card.companyLogo}
               text1={card.companyName}
               text2={card.jobTitle}
-              text3={'₹' + card.salary + 'L/Yr'}
+              text3={`₹ ${card.salary} L/Yr`}
               text4={card.jobDesc}
             />
           </div>
@@ -42,4 +41,4 @@ const CardMovingJob = () => {
   );
 };
 
-export default CardMovingJob;
+export default JobsCardCarousal;

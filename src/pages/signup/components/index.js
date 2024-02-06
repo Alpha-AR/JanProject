@@ -1,2 +1,2 @@
 import SignUpComponent from "./SignUp";
-export { SignUpComponent }
+export { SignUpComponent };

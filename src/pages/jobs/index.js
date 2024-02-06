@@ -1,2 +1,2 @@
 import { Jobs } from "./containers";
-export default Jobs
+export default Jobs;

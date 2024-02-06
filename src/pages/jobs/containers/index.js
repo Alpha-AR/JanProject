@@ -1,2 +1,2 @@
 import Jobs from "./Jobs";
-export { Jobs }
+export { Jobs };

@@ -1,42 +1,41 @@
-import React, { useState } from 'react';
-import Dropdown from '../../../shared/Dropbox';
-import CheckMenu from '../../../shared/CheckMenu';
-import { CHOICES } from '../../../utils/constants.js'
-import { COMPANIESOPTIONS } from '../../../utils/constants.js'
-import { PAYRANGEOPTIONS } from '../../../utils/constants.js'
+import React, { useState } from "react";
+import Dropdown from "../../../shared/Dropdown/index.js";
+import CheckMenu from "../../../shared/MultiCheckMenu/index.js";
+import { COMPANY_SORT_OPTIONS } from "../../../utils/constants.js";
+import { COMPANIES_OPTIONS } from "../../../utils/constants.js";
+import { PAY_RANGE_LIST } from "../../../utils/constants.js";
 
-const JobsNav = ({ jobDetails, handleSortChange, handleCompChange, handlePayChange }) => {
-  return (
-    <div className="shadow-lg border-x border-gray-400 pt-4 px-8 bg-gradient-to-r h-[86vh] from-cyan-50 to-blue-100 ">
-
-      <Dropdown
-        options={CHOICES}
-        id="sort"
-        label="Sort By"
-        labelClass='text-lg font-medium '
-        value={jobDetails.sort}
-        handleChange={(event) => handleSortChange("sort", event.target.value)}
-      />
-      <div className="mb-4">
-        <CheckMenu
-          id="compOpt"
-          labelText='Companies'
-          labelClass='text-lg font-medium '
-          options={COMPANIESOPTIONS}
-          onCheckChange={(updatedCheckedState) => handleCompChange("filters", updatedCheckedState)}
-        />
+const JobsNav = ({ jobDetails, handleSortChange, handleCompFilter, handlePayFilter }) => {
+   return (
+      <div className="shadow-lg border-x border-gray-400 pt-4 px-8 bg-gradient-to-r h-[86vh] from-cyan-50 to-blue-100 ">
+         <Dropdown
+            options={COMPANY_SORT_OPTIONS}
+            id="sort"
+            label="Sort By"
+            labelClass="text-lg font-medium "
+            value={jobDetails.sort}
+            handleChange={(event) => handleSortChange("sort", event.target.value)}
+         />
+         <div className="mb-4">
+            <CheckMenu
+               id="compOpt"
+               labelText="Companies"
+               labelClass="text-lg font-medium"
+               options={COMPANIES_OPTIONS}
+               onCheckChange={(updatedCheckedState) => handleCompFilter("filters", updatedCheckedState)}
+            />
+         </div>
+         <div className="mb-4">
+            <CheckMenu
+               id="payOpt"
+               labelText="Pay Range"
+               labelClass="text-lg font-medium"
+               options={PAY_RANGE_LIST}
+               onCheckChange={(updatedCheckedState) => handlePayFilter("filtersPay", updatedCheckedState)}
+            />
+         </div>
       </div>
-      <div className="mb-4">
-        <CheckMenu
-          id="payOpt"
-          labelText='Pay Range'
-          labelClass='text-lg font-medium '
-          options={PAYRANGEOPTIONS}
-          onCheckChange={(updatedCheckedState) => handlePayChange("filtersPay", updatedCheckedState)}
-        />
-      </div>
-    </div>
-  );
+   );
 };
 
 export default JobsNav;

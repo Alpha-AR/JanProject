@@ -1,3 +1,3 @@
 import HomeComponent from "./Home";
 
-export { HomeComponent } 
+export { HomeComponent };

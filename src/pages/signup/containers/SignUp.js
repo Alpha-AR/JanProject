@@ -1,82 +1,80 @@
-import { SignUpComponent } from '../components'
-import React, { useState, useContext, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { useAuth } from '../../../utils/useAuth';
-import toast from 'react-hot-toast'
+import { SignUpComponent } from "../components";
+import React, { useState, useContext, useEffect } from "react";
+import { useRouter } from "next/router";
+import { useAuth } from "../../../utils/useAuth";
+import { customToast } from "../../../utils/helper";
 
 const SignUp = () => {
+   const router = useRouter();
+   const { setUserName } = useAuth();
 
-    useEffect(() => {
-        const storedCredentials = localStorage.getItem('credentials');
-        if (storedCredentials) {
-            const parsedCredentials = JSON.parse(storedCredentials);
-            if (parsedCredentials.isLoggedIn === 1) {
-                router.push('/jobs'); 
-            }
-        }
-       
-    }, [useRouter]); 
+   const [userDetails, setUserDetails] = useState({
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+      gender: "NA",
+      isLoggedIn: 1,
+   });
+   const [error, setError] = useState({});
 
-    const router = useRouter();
-    const [userDetails, setUserDetails] = useState({
-        name: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-        gender: "na",
-        isLoggedIn: 1
-    });
+   useEffect(() => {
+      const storedCredentials = localStorage.getItem("credentials");
+      if (storedCredentials) {
+         const parsedCredentials = JSON.parse(storedCredentials);
+         if (parsedCredentials.isLoggedIn === 1) {
+            router.push("/jobs");
+         }
+      }
+   }, [useRouter]);
 
-    const [error, setError] = useState({});
+   const handleChange = (key, value) => {
+      setUserDetails((prev) => ({ ...prev, [key]: value }));
+   };
 
-    const handleChange = (key, value) => {
-        setUserDetails(prev => ({ ...prev, [key]: value }));
-    }
-    const { setUserName } = useAuth();
-    const passValueToApp = (value) => setUserName(value);
-
-    const validateForm = () => {
-        const errorObj = {};
-        if (!userDetails.name.trim().length) {
-            errorObj["name"] = "Required";
-        }
-        if (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/).test(userDetails.email)) {
+   const validateForm = () => {
+      const errorObj = {};
+      if (!userDetails.name.trim().length) {
+         errorObj["name"] = "Required";
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userDetails.email)) {
+         errorObj["email"] = "Invalid Email";
+         if (userDetails.email.length == 0) {
             errorObj["email"] = "Required";
-        }
-        if (!(userDetails.password.length >= 8)) {
-            errorObj["password"] = "Enter an 8-digit password";
-            if (userDetails.password.length == 0) {
-                errorObj["password"] = "Required";
-            }
-        }
-        if (!(userDetails.password === userDetails.confirmPassword)) {
-            errorObj["confirmPassword"] = "Passwords do not match";
-        }
-        setError(errorObj);
-        return errorObj;
-    }
+         }
+      }
+      if (!(userDetails.password.length >= 8)) {
+         errorObj["password"] = "Enter an 8-digit password";
+         if (userDetails.password.length == 0) {
+            errorObj["password"] = "Required";
+         }
+      }
+      if (!(userDetails.password === userDetails.confirmPassword)) {
+         errorObj["confirmPassword"] = "Passwords do not match";
+      }
+      setError(errorObj);
+      return errorObj;
+   };
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const errorbj = validateForm();
-        if (Object.keys(errorbj).length === 0) {
-            passValueToApp(userDetails.name);
-            localStorage.setItem('credentials', JSON.stringify(userDetails))
-            router.push('/')
-            toast('Signed up!', {
-                style: {
-                    background: '#A4F3FC', 
-                    color: 'black'
-                },
-              });
-        } else {
-            console.log(errorbj)
-        }
-    };
+   const handleSubmit = (event) => {
+      event.preventDefault();
+      const errorbj = validateForm();
+      if (Object.keys(errorbj).length === 0) {
+         setUserName(userDetails.name);
+         localStorage.setItem("credentials", JSON.stringify(userDetails));
+         customToast("Signed up!", 'casual')
+         router.push("/");
+      }
+   };
 
-    return (
-        <SignUpComponent userDetails={userDetails} error={error} handleChange={handleChange} handleSubmit={handleSubmit} />
-    );
-}
+   return (
+      <SignUpComponent
+         userDetails={userDetails}
+         error={error}
+         handleChange={handleChange}
+         handleSubmit={handleSubmit}
+      />
+   );
+};
 
 export default SignUp;

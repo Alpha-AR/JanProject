@@ -1,11 +1,16 @@
 import React from "react";
 
-const Button = ({ type, className, disabledText, text, onClick, image }) => {
-    return (
-    <button type={type} className={`${className} transition duration-300 ease-in-out`} disabled={'' || disabledText} onClick={onClick || null} >
-        {image ? <img src={image.src} className='h-full w-full object-contain' alt='img' />  : null}
-        {text} </button>
-        )
-}
+const Button = ({ type, className, disabled, text, onClick, image }) => {
+  return (
+    <button
+      type={type}
+      className={`${className} transition duration-300 ease-in-out`}
+      disabled={disabled || false}
+      onClick={onClick || null}
+    >
+      {text}{" "}
+    </button>
+  );
+};
 
 export default Button;

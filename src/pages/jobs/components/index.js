@@ -1,2 +1,2 @@
 import JobsComponent from "./Jobs";
-export { JobsComponent }
+export { JobsComponent };
