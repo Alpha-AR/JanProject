@@ -2,21 +2,52 @@ import React from 'react';
 import JobsNav from './JobsNav';
 import Input from '../../../shared/Input';
 import CardGrid from '../containers/CardGrid';
+import Button from '../../../shared/Button';
 
+import { useState, useEffect } from 'react';
 const Jobs = ({ jobDetails, handleSortChange, handleCompChange, handlePayChange, handleSearchChange }) => {
+
+    const [isExpanded, setIsExpanded] = useState(false);
+    const toggleExpansion = () => setIsExpanded(!isExpanded);
+    useEffect(() => {
+        const updateSize = () => {
+            if (window.innerWidth >= 1024) //screen md ka width
+            {
+                setIsExpanded(true);
+            }
+        };
+        window.addEventListener('resize', updateSize); updateSize();
+
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
+
     return (
-        <div className="grid grid-cols-[1fr_4fr] h-[86vh] ">
-            <JobsNav handleSortChange={handleSortChange} jobDetails={jobDetails} handleCompChange={handleCompChange} handlePayChange={handlePayChange} />
+        <div className="grid lg:grid-cols-[1fr_4fr] h-[90vh] md:h-[86vh]">
+            <div className={`transition-height duration-500 ease-in-out overflow-hidden ${isExpanded ? 'h-[86vh]' : 'h-0'} `}>
+                <JobsNav
+                    handleSortChange={handleSortChange}
+                    jobDetails={jobDetails}
+                    handleCompChange={handleCompChange}
+                    handlePayChange={handlePayChange}
+                />
+            </div>
             <div className='flex flex-col px-5 overflow-hidden' >
                 <Input
                     type="text"
                     placeholder="Search by company | Search by role"
                     value={jobDetails.search}
-                    className='bg-gray-50  mb-4 my-2 rounded-xl px-2'
+                    className='bg-gray-50  lg:mb-4 my-2 rounded-xl px-2'
                     handleChange={(event) => handleSearchChange("search", event.target.value)}
                 />
                 <CardGrid jobDetails={jobDetails} />
+
             </div>
+            <Button
+                className=" z-10 w-full py-2 text-left bg-gradient-to-r from-blue-300 to-cyan-300 text-white lg:hidden"
+                onClick={() => toggleExpansion()}
+                text={isExpanded ? 'Hide Options' : 'Show Options'}
+            >
+            </Button>
         </div>
     );
 };

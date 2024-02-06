@@ -24,7 +24,7 @@ const CardMovingJob = () => {
       <div className="text-5xl font-bold my-8 ">TRENDING JOBS TODAY</div>
       <Slider {...settings}>
         {cardJSON.slice(0, 8).map((card, index) => (
-          <div key={index} className="flex-none  w-1/4 gap-4 flex items-center justify-center px-10 p-6 text-white">
+          <div key={index} className="gap-1 px-10 p-6 text-white">
 
             <CustomCardJob
               key={index}

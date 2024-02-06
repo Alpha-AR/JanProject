@@ -5,7 +5,6 @@ import CardMovingComp from '../../../shared/CardRotatingComp/index.js';
 import CardMovingJob from '../../../shared/CardRotatingJob/index.js';
 import React from 'react';
 
-
 const App = ({ }) => {
     return (
         <>

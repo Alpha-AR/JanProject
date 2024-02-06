@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Link from 'next/link';
-import { linkedinIcon } from '../../assets/images';
+// import { useRouter } from 'next/router'; 
+import { linkedinIcon, logout } from '../../assets/images';
 import { styles } from './style.js';
 import Button from '../Button/index.js';
 import Image from '../Image/index.js';
-import { logout } from '../../assets/images';
+import { useAuth } from '../../utils/useAuth.js';
+import toast from 'react-hot-toast'
 
 const Header = ({ text }) => {
+  const { setUserName } = useAuth();
+  const handleLogout = () => {
+    localStorage.setItem('credentials', JSON.stringify({ ...JSON.parse(localStorage.getItem('credentials')), isLoggedIn: 0 }));
+    setUserName(null);
+    toast('Logged Out!', {
+      style: {
+        background: '#A4F3FC', 
+        color: 'black'
+      },
+    });
+  };
+
   return (
     <nav className={styles.navbar}>
       <div className='flex items-center justify-center'>
@@ -26,16 +40,15 @@ const Header = ({ text }) => {
           </div>
         </div>
         <div>
-          { text ? (
-            <Link href="/SignIn">
-              <img src={logout} />
-              {/* <Button className={`${styles.btn} flex flex-row-reverse`} text={text} image= {{logout}} /> */}
-            </Link>
-          ) : (
-            <Link href="/SignIn" className={styles.link}>
+          <Link href="/SignIn" className={styles.link}>
+            {text ? (
+              <button onClick={handleLogout}>
+                <img src={logout} alt="Logout" />
+              </button>
+            ) : (
               <Button className={`${styles.btn} flex flex-row-reverse`} text="SIGN IN" />
-            </Link>
-          )}
+            )}
+          </Link>
         </div>
       </div>
     </nav>

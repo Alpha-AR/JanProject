@@ -1,7 +1,8 @@
 import { SignInComponent } from '../components'
 import React, { useState, useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import AppContext from '../../../contexts/AppContext';
+import { useAuth } from '../../../utils/useAuth';
+import toast from 'react-hot-toast'
 
 const SignIn = () => {
     useEffect(() => {
@@ -15,7 +16,7 @@ const SignIn = () => {
 
     }, [useRouter]);
 
-    const { setUserName } = useContext(AppContext);
+    const { setUserName } = useAuth();
     const passValueToApp = (value) => setUserName(value);
     const router = useRouter();
     const [userDetails, setUserDetails] = useState({
@@ -62,6 +63,12 @@ const SignIn = () => {
             passValueToApp(parsedCredentials.name);
             localStorage.setItem('credentials', JSON.stringify({ ...JSON.parse(localStorage.getItem('credentials')), isLoggedIn: 1 }));
             router.push('/');
+            toast('Signed in!', {
+                style: {
+                    background: '#A4F3FC', 
+                    color: 'black'
+                },
+              });
         } else {
             console.log(errorbj)
         }

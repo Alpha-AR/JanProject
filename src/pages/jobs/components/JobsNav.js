@@ -7,7 +7,7 @@ import { PAYRANGEOPTIONS } from '../../../utils/constants.js'
 
 const JobsNav = ({ jobDetails, handleSortChange, handleCompChange, handlePayChange }) => {
   return (
-    <div className="shadow-lg border-x border-gray-400 pt-4 px-8 bg-gradient-to-r from-cyan-50 to-blue-100 ">
+    <div className="shadow-lg border-x border-gray-400 pt-4 px-8 bg-gradient-to-r h-[86vh] from-cyan-50 to-blue-100 ">
 
       <Dropdown
         options={CHOICES}

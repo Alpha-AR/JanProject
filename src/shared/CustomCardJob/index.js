@@ -4,24 +4,24 @@ import toast from 'react-hot-toast';
 const CustomCardJob = ({ img1, img2, text1, text2, text3, text4, className }) => {
   const notify = () => {
     const credentials = JSON.parse(localStorage.getItem('credentials'));
-    if (credentials && credentials.isLoggedIn == 1) { 
+    if (credentials && credentials.isLoggedIn == 1) {
       toast(`Applied at ${text1}`, {
         style: {
-        backgroundColor: '#3b82f6', 
-        color: 'white'
+          backgroundColor: '#3b82f6',
+          color: 'white'
         }
       });
     }
     else {
       toast('Please Sign In first', {
         style: {
-          backgroundColor: '#ef4444', 
-          color: 'white'
+          background: '#A4F3FC',
+          color: 'black'
         },
       });
     }
   }
-  
+
 
   return (
     <div className={` ${className} bg-gradient-to-r from-white to-gray-100 w-64 h-96 flex flex-col rounded-2xl transition duration-300 overflow-hidden shadow-sm shadow-black text-gray-800 text-base opacity-85 hover:border-gray-700 hover:opacity-100 hover:shadow-2xl hover:from-gray-100 hover:to-white`}>
@@ -35,7 +35,7 @@ const CustomCardJob = ({ img1, img2, text1, text2, text3, text4, className }) =>
           <div className="text-start text-lg">{text2}</div>
           <div className="text-end text-lg">{text3}</div>
         </div>
-        <p className=" text-gray-600 text-base text-justify line-clamp-2 ">{text4}</p> 
+        <p className=" text-gray-600 text-base text-justify line-clamp-2 ">{text4}</p>
         <Button className=' p-2 mt-2 border shadow-black hover:border-gray-200 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 opacity-95 w-full  hover:opacity-100 hover:shadow-xl text-blue-50 font-bold hover:from-cyan-500 hover:to-blue-500 focus:shadow-inner ' text='APPLY' onClick={notify} />
       </div>
     </div>

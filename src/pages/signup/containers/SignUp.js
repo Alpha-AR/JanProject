@@ -1,8 +1,8 @@
 import { SignUpComponent } from '../components'
 import React, { useState, useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import AppContext from '../../../contexts/AppContext';
-import toast from 'react-hot-toast';
+import { useAuth } from '../../../utils/useAuth';
+import toast from 'react-hot-toast'
 
 const SignUp = () => {
 
@@ -32,7 +32,7 @@ const SignUp = () => {
     const handleChange = (key, value) => {
         setUserDetails(prev => ({ ...prev, [key]: value }));
     }
-    const { setUserName } = useContext(AppContext);
+    const { setUserName } = useAuth();
     const passValueToApp = (value) => setUserName(value);
 
     const validateForm = () => {
@@ -63,6 +63,12 @@ const SignUp = () => {
             passValueToApp(userDetails.name);
             localStorage.setItem('credentials', JSON.stringify(userDetails))
             router.push('/')
+            toast('Signed up!', {
+                style: {
+                    background: '#A4F3FC', 
+                    color: 'black'
+                },
+              });
         } else {
             console.log(errorbj)
         }

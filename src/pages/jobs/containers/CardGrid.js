@@ -27,7 +27,7 @@ const CardGrid = ({ jobDetails }) => {
     const sortedAndFilteredCards = sortCards(filterCards(cardJSON, jobDetails.filters, jobDetails.filtersPay, jobDetails.search), jobDetails.sort);
 
     return (
-        <div className={'grid grid-cols-4 gap-4 pb-4 overflow-scroll'}>
+        <div className={'grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols justify-center gap-4 pb-4  overflow-scroll'}>
             {sortedAndFilteredCards.map((card, index) => (
                 <CustomCard
                     key={index}
