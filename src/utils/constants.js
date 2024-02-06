@@ -66,7 +66,7 @@ export const CARD_JSON = [
       jobDesc: "Lorem ipsum dolor sit amet et delectus accommodare",
    },
 ];
-export const COMPANY_SORT_OPTIONS = [
+export const SORT_OPTIONS = [
    { value: "NamAsc", label: "Company ↓", type: "company" },
    { value: "NamDesc", label: "Company ↑", type: "company" },
    { value: "JobAsc", label: "Job ↓", type: "Job" },

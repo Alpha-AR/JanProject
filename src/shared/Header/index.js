@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { linkedinIcon} from "../../assets/images";
+import { linkedinIcon, linkedInShort} from "../../assets/images";
 import { styles } from "./style.js";
 import Button from "../Button/index.js";
 import Image from "../Image/index.js";
@@ -42,7 +42,7 @@ const Header = ({ text }) => {
             </div>
             <div>
                {text ? (
-                 <Button className={`${styles.btn} flex flex-row-reverse`} text="LOGOUT ►" onClick={handleLogout}/>
+                 <Button className={`${styles.btn} flex flex-row-reverse`} text={`LOGOUT ►`} onClick={handleLogout}/>
                ) : (
                   <Link href="/SignIn" className={styles.link}>
                      <Button className={`${styles.btn} flex flex-row-reverse`} text="SIGN IN" />

@@ -20,7 +20,7 @@ const CustomCardJob = ({
 
   return (
     <div
-      className={` ${className} bg-gradient-to-r from-white to-gray-100 w-64 h-96 flex flex-col rounded-2xl transition duration-300 overflow-hidden shadow-sm shadow-black text-gray-800 text-base opacity-85 hover:border-gray-700 hover:opacity-100 hover:shadow-2xl hover:from-gray-100 hover:to-white`}
+      className={` ${className} justify-stretch bg-gradient-to-r from-white to-gray-100 w-64 h-96 flex flex-col rounded-2xl transition duration-300 overflow-hidden shadow-sm shadow-black text-gray-800 text-base opacity-85 hover:border-gray-700 hover:opacity-100 hover:shadow-2xl hover:from-gray-100 hover:to-white`}
     >
       <img
         className="w-contain h-40 border-b border-gray-700"
