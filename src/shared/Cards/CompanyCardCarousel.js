@@ -28,7 +28,7 @@ const CompanyCardCarousel = () => {
             key={index}
             className="flex-none h-full w-1/4 gap-4 flex items-center px-6 pb-4 text-white"
           >
-            <CustomCardComp img2={card.companyLogo} text1={card.companyName} />
+            <CustomCardComp img={card.companyLogo} text={card.companyName} />
           </div>
         ))}
       </Slider>

@@ -1,12 +1,12 @@
 import Button from "../Button";
 import { customToast } from "../../utils/helper";
 const CustomCardJob = ({
-  img1,
-  img2,
-  text1,
-  text2,
-  text3,
-  text4,
+  jobLogo,
+  companyLogo,
+  companyName,
+  jobTitle,
+  salary,
+  jobDesc,
   className,
 }) => {
   const notify = () => {
@@ -24,26 +24,26 @@ const CustomCardJob = ({
     >
       <img
         className="w-contain h-40 border-b border-gray-700"
-        src={img1.src}
+        src={jobLogo.src}
         alt="role-image"
       />
       <div className=" p-4">
         <div className="grid grid-cols-[1fr_3fr]">
           <img
-            src={img2.src}
+            src={companyLogo.src}
             alt="company-icon"
             className="rounded-full border border-black "
           />
           <div className="font-bold text-2xl flex items-center justify-center">
-            {text1}
+            {companyName}
           </div>
         </div>
         <div className="font-bold flex justify-between pt-2">
-          <div className="text-start text-lg">{text2}</div>
-          <div className="text-end text-lg">{text3}</div>
+          <div className="text-start text-lg">{jobTitle}</div>
+          <div className="text-end text-lg">{salary}</div>
         </div>
         <p className=" text-gray-600 text-base text-justify line-clamp-2 ">
-          {text4}
+          {jobDesc}
         </p>
         <Button
           className=" p-2 mt-2 border shadow-black hover:border-gray-200 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 opacity-95 w-full  hover:opacity-100 hover:shadow-xl text-blue-50 font-bold hover:from-cyan-500 hover:to-blue-500 focus:shadow-inner "

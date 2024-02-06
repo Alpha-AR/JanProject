@@ -27,12 +27,12 @@ const JobsCardCarousal = () => {
           <div key={index} className="gap-1 px-10 p-6 text-white">
             <CustomCardJob
               key={index}
-              img1={card.jobLogo}
-              img2={card.companyLogo}
-              text1={card.companyName}
-              text2={card.jobTitle}
-              text3={`₹ ${card.salary} L/Yr`}
-              text4={card.jobDesc}
+              jobLogo={card.jobLogo}
+              companyLogo={card.companyLogo}
+              companyName={card.companyName}
+              jobTitle={card.jobTitle}
+              salary={`₹ ${card.salary} L/Yr`}
+              jobDesc={card.jobDesc}
             />
           </div>
         ))}
