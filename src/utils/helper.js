@@ -21,18 +21,6 @@ export const customToast = (message, type) => {
    }
 };
 
-export const sortCards1 = (obj, sortCriteria, sortCriteriaType) => {
-   switch (sortCriteria) {
-      case "ASC":
-         if (type === "string") return obj.sort((a, b) => a[sortCriteriaType].localeCompare(b[sortCriteriaType]));
-         return obj.sort((a, b) => parseFloat(a[sortCriteriaType]) - parseFloat(b[sortCriteriaType]));
-      case "DESC":
-         if (type === "string") return obj.sort((a, b) => b[sortCriteriaType].localeCompare(a[sortCriteriaType]));
-         return obj.sort((a, b) => parseFloat(b[sortCriteriaType]) - parseFloat(a[sortCriteriaType]));
-      default:
-         return obj;
-   }
-};
 
 export const sortCards = (cards, sortCriteria) => {
    switch (sortCriteria) {

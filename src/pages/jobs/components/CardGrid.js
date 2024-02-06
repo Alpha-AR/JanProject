@@ -10,12 +10,12 @@ const CardGrid = ({ jobDetails }) => {
       {sortedAndFilteredCards.map((card, index) => (
         <CustomCard
           key={index}
-          img1={card.jobLogo}
-          img2={card.companyLogo}
-          text1={card.companyName}
-          text2={card.jobTitle}
-          text3={"₹" + card.salary + "L/Yr"}
-          text4={card.jobDesc}
+          jobLogo={card.jobLogo}
+          companyLogo={card.companyLogo}
+          companyName={card.companyName}
+          jobTitle={card.jobTitle}
+          salary={"₹" + card.salary + "L/Yr"}
+          jobDesc={card.jobDesc}
         />
       ))}
     </div>
