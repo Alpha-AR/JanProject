@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useAuth } from "../../../utils/useAuth";
 import { customToast } from "../../../utils/helper";
+import { TOAST_TYPE } from '../../../utils/constants';
 
 const SignIn = () => {
   const { setUserName } = useAuth();
@@ -70,7 +71,7 @@ const SignIn = () => {
         }),
       );
       router.push("/");
-      customToast("Signed in!", 'casual');
+      customToast("Signed in!", TOAST_TYPE.SUCCESS);
     }
   };
   return (

@@ -1,9 +1,8 @@
 import AppContext from "../contexts/AppContext";
 import React, { useState, useEffect } from "react";
-import Header from "../shared/Header";
-import Footer from "../shared/Footer";
+import { Header, Footer } from "../shared";
 import { Toaster } from "react-hot-toast";
-import '../assets/styles/globals.css';
+import "../assets/styles/globals.css";
 
 export default function App({ Component, pageProps }) {
   const [userName, setUserName] = useState(null);

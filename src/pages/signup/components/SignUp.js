@@ -1,6 +1,6 @@
 import { styles } from "./style.js";
 import { signInImg } from "../../../assets/images";
-import Image from "../../../shared/Image/index.js";
+import { Image } from "../../../shared";
 import SignUpCard from "./SignUpCard.js";
 
 const SignUp = ({ userDetails, error, handleChange, handleSubmit }) => {

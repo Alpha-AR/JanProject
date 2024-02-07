@@ -1,9 +1,7 @@
+import React from "react";
 import { styles } from "./style.js";
 import { banner1 } from "../../../assets/images";
-import Image from "../../../shared/Image/index.js";
-import CardMovingComp from "../../../shared/Cards/CompanyCardCarousel.js";
-import CardMovingJob from "../../../shared/Cards/JobsCardCarousal.js";
-import React from "react";
+import { Image, CompanyCardCarousel, JobsCardCarousal } from "../../../shared";
 
 const App = ({}) => {
   return (
@@ -28,8 +26,8 @@ const App = ({}) => {
       </div>
       <div className={styles.container2}>
         <div className=" container mx-auto text-center  bg-gradient-to-r from-blue-700 to-cyan-700 text-transparent bg-clip-text py-5">
-          <CardMovingComp />
-          <CardMovingJob />
+          <CompanyCardCarousel />
+          <JobsCardCarousal />
         </div>
       </div>
     </>

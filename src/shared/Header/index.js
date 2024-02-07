@@ -1,11 +1,12 @@
 import React from "react";
 import Link from "next/link";
-import { linkedinIcon, linkedInShort} from "../../assets/images";
+import { linkedinIcon } from "../../assets/images";
 import { styles } from "./style.js";
-import Button from "../Button/index.js";
-import Image from "../Image/index.js";
+import { Button, Image } from "../";
 import { useAuth } from "../../utils/useAuth.js";
 import { customToast } from "../../utils/helper.js";
+import { TOAST_TYPE } from "../../utils/constants.js";
+
 
 const Header = ({ text }) => {
    const { setUserName } = useAuth();
@@ -19,7 +20,7 @@ const Header = ({ text }) => {
          })
       );
       setUserName(null);
-      customToast("Logged Out!",'casual')
+      customToast("Logged Out!", TOAST_TYPE.SUCCESS);
    };
 
    return (
@@ -42,7 +43,7 @@ const Header = ({ text }) => {
             </div>
             <div>
                {text ? (
-                 <Button className={`${styles.btn} flex flex-row-reverse`} text={`LOGOUT ►`} onClick={handleLogout}/>
+                  <Button className={`${styles.btn} flex flex-row-reverse`} text={`LOGOUT ►`} onClick={handleLogout} />
                ) : (
                   <Link href="/SignIn" className={styles.link}>
                      <Button className={`${styles.btn} flex flex-row-reverse`} text="SIGN IN" />

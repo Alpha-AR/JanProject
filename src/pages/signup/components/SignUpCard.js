@@ -1,12 +1,9 @@
 // import React from 'react';
 import { styles } from "./style";
-import Input from "../../../shared/Input";
-import Button from "../../../shared/Button";
-import Dropdown from "../../../shared/Dropdown";
-import { genderOptions } from "../../../utils/constants";
+import { Input, Button, Dropdown } from "../../../shared";
+import { GENDER_OPTIONS } from "../../../utils/constants";
 
 const SignUpCard = ({ userDetails, error, handleChange, handleSubmit }) => {
-
   return (
     <div className={styles.signUpBox}>
       <form onSubmit={handleSubmit} className="w-full items-center">
@@ -64,7 +61,7 @@ const SignUpCard = ({ userDetails, error, handleChange, handleSubmit }) => {
         </div>
 
         <Dropdown
-          options={genderOptions}
+          options={GENDER_OPTIONS}
           id="gender"
           label="Gender"
           labelClass={styles.labelText}

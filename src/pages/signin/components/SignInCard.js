@@ -1,8 +1,7 @@
 import React from "react";
 import { styles } from "./style";
-import Input from "../../../shared/Input";
+import { Input, Button } from "../../../shared";
 import Link from "next/link";
-import Button from "../../../shared/Button";
 
 const SignInCard = ({ userDetails, error, handleChange, handleSubmit }) => {
   return (
