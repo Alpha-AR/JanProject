@@ -72,5 +72,3 @@ export const FilterSortCards = ({ jobDetails }) => {
 
    return sortedAndFilteredCards;
 };
-
-export default FilterSortCards;
