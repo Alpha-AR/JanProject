@@ -1,2 +1,2 @@
-import { Jobs } from "./containers";
+import { Jobs } from '../../layout/jobs/containers';
 export default Jobs;

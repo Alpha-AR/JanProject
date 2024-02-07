@@ -1,3 +1,2 @@
-import { Home } from "./containers";
-
+import { Home } from '../../layout/home/containers';
 export default Home;

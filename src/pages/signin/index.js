@@ -1,2 +1,2 @@
-import { SignIn } from "./containers";
+import { SignIn } from '../../layout/SignIn/containers';
 export default SignIn;
