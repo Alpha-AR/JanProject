@@ -67,12 +67,12 @@ export const CARD_JSON = [
    },
 ];
 export const SORT_OPTIONS = [
-   { value: "NamAsc", label: "Company ↓", type: "company" },
-   { value: "NamDesc", label: "Company ↑", type: "company" },
-   { value: "JobAsc", label: "Job ↓", type: "Job" },
-   { value: "JobDesc", label: "Job ↑", type: "Job" },
-   { value: "PayAsc", label: "Pay ↓", type: "Pay" },
-   { value: "PayDesc", label: "Pay ↑", type: "Pay" },
+   { value: "NamAsc", label: "Company ↓"},
+   { value: "NamDesc", label: "Company ↑" },
+   { value: "JobAsc", label: "Job ↓"},
+   { value: "JobDesc", label: "Job ↑"},
+   { value: "PayAsc", label: "Pay ↓"},
+   { value: "PayDesc", label: "Pay ↑"},
 ];
 
 export const COMPANIES_OPTIONS = [

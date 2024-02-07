@@ -21,7 +21,6 @@ export const customToast = (message, type) => {
    }
 };
 
-
 export const sortCards = (cards, sortCriteria) => {
    switch (sortCriteria) {
       case "NamAsc":
