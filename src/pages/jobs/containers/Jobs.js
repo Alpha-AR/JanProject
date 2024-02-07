@@ -8,8 +8,6 @@ const Jobs = () => {
     search: "",
   });
 
-  console.log({ jobDetails });
-
   const handleSortChange = (key, value) => {
     setJobDetails((prev) => ({ ...prev, [key]: value }));
   };
