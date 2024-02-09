@@ -40,8 +40,8 @@ const SignIn = () => {
         errorObj["email"] = "Required";
       }
     }
-    if (!(userDetails.password.length >= 8)) {
-      errorObj["password"] = "Incomplete Password";
+    if (userDetails.password.length == 0) {
+      errorObj["password"] = "Required";
     }
     if (
       userDetails.email !== parsedCredentials.email ||

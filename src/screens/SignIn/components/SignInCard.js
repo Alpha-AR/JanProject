@@ -35,22 +35,20 @@ const SignInCard = ({ userDetails, error, handleChange, handleSubmit }) => {
             }
             type="password"
             value={userDetails.password}
-            handleChange={(event) =>
-              handleChange("password", event.target.value)
-            }
+            handleChange={(event) => handleChange("password", event.target.value)}
           />
+          <div className="text-sm text-red-600 "> {error.password} </div>
         </div>
         <div className="text-center pt-2">
           <div className="text-sm text-red-600 mb-2">
-            {" "}
-            {!error.email ? error.text : ""}{" "}
+            {" "} {!error.email&&!error.password ? error.text : ""} {" "}
           </div>
           <Button type="submit" className={styles.button} text="SUBMIT" />
           <div className="mt-2">
             New User?{" "}
             <Link
               href="/SignUp"
-              className="text-s text-blue-400 underline underline-offset-5 hover:text-blue-800 "
+              className="text-s text-blue-600 underline underline-offset-5 hover:text-blue-900 "
             >
               Register
             </Link>
