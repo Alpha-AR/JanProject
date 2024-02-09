@@ -1,2 +1,2 @@
-import { SignUp } from '../../layout/SignUp/containers';
+import { SignUp } from '../../screens/SignUp/containers';
 export default SignUp;

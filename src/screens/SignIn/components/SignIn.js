@@ -1,6 +1,6 @@
 import { styles } from "./style.js";
-import { signInImg } from "../../../assets/images";
-import { Image } from "../../../shared";
+import { signInImg } from "../../../assets/images/index.js";
+import { Image } from "../../../shared/index.js";
 import SignInCard from "./SignInCard.js";
 const SignIn = ({ userDetails, error, handleChange, handleSubmit }) => {
   return (

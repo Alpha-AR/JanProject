@@ -1,2 +1,2 @@
-import { SignIn } from '../../layout/SignIn/containers';
+import { SignIn } from '../../screens/SignIn/containers';
 export default SignIn;

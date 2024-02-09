@@ -1,2 +1,2 @@
-import { Home } from '../layout/home/containers';
+import { Home } from '../screens/home/containers';
 export default Home;
