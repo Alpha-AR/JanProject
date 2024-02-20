@@ -3,7 +3,7 @@ import { styles } from "./style.js";
 import { banner1 } from "../../../assets/images";
 import { Image, CompanyCardCarousel, JobsCardCarousal } from "../../../shared";
 
-const App = ({}) => {
+const Home = ({}) => {
   return (
     <>
       <div className={styles.container1}>
@@ -34,4 +34,4 @@ const App = ({}) => {
   );
 };
 
-export default App;
+export default Home;
